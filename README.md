@@ -1,4 +1,4 @@
-# This is an App called F-end
+# This is an App called F-endz
 
 ## Getting Started with Create React App
 
