@@ -9,14 +9,14 @@ export const FeatureData = [
         title:'Generate Colors',
         imgurl: color,
         reference:'color',
-        text:'You can type in  range and color Code of their desire colors and copy to your clipboard'
+        text:'You can type in  range and color Code of your desire colors and copy to your clipboard'
     },
     {
         id:1,
         title:'Image Gallery',
         imgurl:gallery,
         reference:"gallery",
-        text:'You can type in the context of the image they want. The process will utilize the Unsplashed API to generate the images.'
+        text:'You can type in the context of the image you want. The process will utilize the Unsplashed API to generate the images.'
 
     },
     {
