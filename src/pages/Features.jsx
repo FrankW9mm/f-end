@@ -16,8 +16,8 @@ const Features = ({ data }) => {
         {show.show && <Alert removeAlert={ShowAlert} {...show} />}
       </h1>
 
-      <div className="w-full lg:mt-[3rem] mt-[3rem] lg:gap-0 gap-[2rem] flex flex-wrap lg:flex-row flex-col items-center justify-evenly">
-        <div className="flex lg:gap-[40px] gap-[20px] flex-row flex-wrap lg:p-[3rem] p-[1rem] lg:w-[800px]  items-center w-full lg:justify-start justify-center">
+      <div className="w-full flex flex-col items-center justify-center">
+        <div className=" mt-[2rem] flex lg:gap-[40px] gap-[20px] flex-row flex-wrap lg:p-[2rem] p-[1rem] lg:w-full items-center w-full justify-center">
           {data.map((items, index) => {
             return (
               <FeatureBlock {...items} id={index} />
@@ -39,12 +39,10 @@ const Features = ({ data }) => {
             );
           })}
         </div>
-        <div className="text-white lg:text-left text-left  ">
-          <h1 className="lg:text-[40px] text-[30px] font-semibold">
-            SPEED UP!
+        <div className="text-white flex mt-[2rem] flex-row lg:text-left text-left">
+          <h1 className="lg:text-[30px] uppercase text-[20px] font-semibold">
+            SPEED UP! your project with us
           </h1>
-          <p className="lg:text-[28px] text-[24px]">YOUR PROJECTS</p>
-          <p className="lg:text-[20px] text-[18px]">WITH US</p>
         </div>
       </div>
     </div>

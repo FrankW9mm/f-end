@@ -2,7 +2,7 @@ import React from "react";
 
 const Navigate = () => {
   return (
-    <div className="flex flex-row justify-between bg-[#0E0E0E] md:px-[3rem] px-[1rem] md:py-[2rem] py-[1rem] shadow-2xl ">
+    <div className="relative flex flex-row justify-between bg-[#0E0E0E] md:px-[3rem] px-[1rem] md:py-[2rem] py-[1rem] shadow-2xl ">
       <div>
         <h1 className="text-white text-[32px]">| F-ENDZ |</h1>
       </div>
@@ -11,6 +11,7 @@ const Navigate = () => {
           Explore now
         </button>
       </div>
+      <div className=" absolute w-[100px] h-[100px] top-1 left-1 gradient-01"></div>
     </div>
   );
 };

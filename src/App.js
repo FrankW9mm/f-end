@@ -4,6 +4,7 @@ import Navigate from './components/Navigate';
 import Hero from './pages/Hero';
 import Features from './pages/Features';
 import { FeatureData } from './data/FeaturesData';
+import ColorPage from './pages/ColorPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navigate />
       <Hero />
       <Features data={FeatureData} />
+      <ColorPage />
     </div>
   );
 }

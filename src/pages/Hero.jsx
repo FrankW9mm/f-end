@@ -3,9 +3,10 @@ import Bg from "../components/img/bg.gif";
 import { BsMouse } from "react-icons/bs";
 const Hero = () => {
   return (
-    <div>
+    <div className="">
       <div className="flex flex-col md:items-center items-start bg-[#0E0E0E] md:px-[2rem] px-[1rem] py-[3rem] gap-[30px]">
-        <div className="w-full flex lg:flex-row flex-col gap-10 lg:items-center items-start justify-evenly">
+        <div className="relative w-full flex lg:flex-row flex-col gap-10 lg:items-center items-start justify-evenly">
+          <div className=" absolute w-[100px] h-[100px] bottom-[-50%] right-[50%] gradient-01"></div>
           <div className="flex flex-col text-white gap-2">
             <h1 className="text-[30px] font-semibold">
               | LOOKING FOR TEST DATA?

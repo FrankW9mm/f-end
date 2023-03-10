@@ -10,13 +10,13 @@ const FeatureBlock = ({ text, imgurl, id, title, reference }) => {
       <h1 className="text-white uppercase text-[18px]">{title}</h1>
       <div className="w-[50px]">
         <img
-          className="hover:rotate-[-30deg] duration-700 "
+          className=" group-hover:rotate-[-30deg] duration-700 "
           src={imgurl}
           alt=""
         />
       </div>
-      <div className="absolute group-hover:bg-[#131212] glassmorphism-inner flex gap-[20px] flex-col p-[2rem] translate-y-[-100%] group-hover:translate-y-[0%] duration-700 lg:w-[300px] w-[250px] lg:h-[300px] h-[250px] bg-[#0E0E0E] ">
-        <h1 className="text-white font-thin text-[20px] ">{title}</h1>
+      <div className="absolute group-hover:bg-[#131212] glassmorphism-inner flex gap-[10px] flex-col p-[2rem] translate-y-[-100%] group-hover:translate-y-[0%] duration-700 lg:w-[300px] w-[250px] lg:h-[300px] h-[250px] bg-[#0E0E0E] ">
+        <h1 className="text-white font-semibold text-[20px] ">{title}</h1>
         <p className="text-white font-thin">{text}</p>
         {/* <a
           href={`#${reference}`}
