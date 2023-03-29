@@ -9,7 +9,18 @@ const Hero = () => {
           <div className=" absolute w-[100px] h-[100px] bottom-[-50%] right-[50%] gradient-01"></div>
           <div className="flex flex-col text-white gap-2">
             <h1 className="text-[30px] font-semibold">
-              | LOOKING FOR TEST DATA?
+              | LOOKING FOR TEST{" "}
+              <div className="h-[50px] relative overflow-clip leading-[50px]">
+                <span className=" absolute ani">
+                  DATA?
+                  <br />
+                  IMAGE?
+                  <br />
+                  TEXT?
+                  <br />
+                  COLOR?
+                </span>
+              </div>
             </h1>
             <p className="text-[21px] font-thin">FROM GENERATING TEXT,IMAGES</p>
             <p className="text-[21px] font-thin">& COLOR SHADES TO</p>

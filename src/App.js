@@ -5,6 +5,10 @@ import Hero from './pages/Hero';
 import Features from './pages/Features';
 import { FeatureData } from './data/FeaturesData';
 import ColorPage from './pages/ColorPage';
+import ColorPicker from './pages/ColorPicker'
+import ImageDummy from './pages/ImageDummy';
+import TextDummy from './pages/TextDummy';
+import NoteDummy from './pages/NoteDummy';
 
 function App() {
   return (
@@ -12,7 +16,11 @@ function App() {
       <Navigate />
       <Hero />
       <Features data={FeatureData} />
-      <ColorPage />
+      {/* <ColorPage /> */}
+      <ColorPicker />
+      <ImageDummy />
+      <TextDummy />
+      <NoteDummy />
     </div>
   );
 }

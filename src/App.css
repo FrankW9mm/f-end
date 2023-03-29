@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
+*{
+    scroll-behavior: smooth;
+}
 .glassmorphism {
     background: rgba(43, 41, 41, 0.25);
+    box-shadow: 0 10px 22px 0 rgba(120, 83, 255, 0.21);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glassmorphism-outer {
     box-shadow: 0 10px 22px 0 rgba(120, 83, 255, 0.21);
     -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -26,4 +34,36 @@
             hsl(293, 93%, 58%) 74%,
             hsl(241, 100%, 52%) 100%);
     filter: blur(140px);
+}
+
+.ani{
+    animation: row 10s ease infinite;
+}
+
+@keyframes row {
+    0%,
+    100%{
+        top: 0%;
+    }
+    20%{
+        top: 0%;
+    }
+    25%{
+        top: -90%;
+    }
+    45%{
+        top: -90%;
+    }
+    50%{
+        top:-100px;
+    }
+    70% {
+        top: -100px;
+        }
+    80%{
+        top: -150px
+    }
+    90% {
+        top: -150px
+        }
 }
