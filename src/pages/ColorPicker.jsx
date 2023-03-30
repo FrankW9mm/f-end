@@ -59,7 +59,7 @@ const ColorPicker = () => {
 
   const { r, g, b, a } = state.color;
   return (
-    <div>
+    <div className=" overflow-x-clip">
       <div className="bg-[#0c0b0b] md:p-[3rem] p-[1rem] " id="color">
         <p className="text-white text-[32px] ">LET'S DEAL WITH COLORS</p>
 
