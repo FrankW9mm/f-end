@@ -14,9 +14,10 @@ export const reducer =( state, action)=>{
         }
     }
 
-    if( action.type ==='SAVE_FAIL'){
+    if( action.type ==='SAVE_FAIL_FULL'){
         return{
             ...state,
+            ModalMessage:'Too Much Item in Storage',
             showModal:action.data,
         }
     }
@@ -39,6 +40,43 @@ export const reducer =( state, action)=>{
         return{
             ...state,
             showSave:action.data,
+        }
+    }
+    if( action.type === 'SAVE_FAIL_DUPLICATED'){
+        return{
+            ...state,
+            ModalMessage:'ALREADY SAVED',
+            showModal:action.data,
+        }
+    }
+    if( action.type ==="SHADE"){
+        return{
+            ...state,
+            color:action.data,
+        }
+    }
+    if( action.type ==='SET_SHADE_OPTION'){
+        return{
+            ...state,
+            option:action.data
+        }
+    }
+    if( action.type ==='SHADE_ENTRY'){
+        return{
+            ...state,
+            list:action.data
+        }
+    }
+    if(action.type ==='SHADE_MODAL_CLOSE'){
+        return{
+            ...state,
+            ShowModal:action.data
+        }
+    }
+     if(action.type ==='SHADE_MODAL_OPEN'){
+        return{
+            ...state,
+            ShowModal:action.data
         }
     }
 }

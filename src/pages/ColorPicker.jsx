@@ -6,10 +6,12 @@ import { getLocalData, saveColor } from "../utilities/LocalData";
 import { BsFillBookmarksFill } from "react-icons/bs";
 import Modal from "../components/Modal";
 import Save from "../components/Save";
+import Shade from "../components/Shade";
 const initialState = {
   color: "",
   hex: "",
   showModal: false,
+  ModalMessage: "",
   showSave: false,
   colorList: getLocalData(),
 };
@@ -41,10 +43,14 @@ const ColorPicker = () => {
   };
   const handleSaveProcess = (color) => {
     let ProcessFail = saveColor(color);
-    // if (ProcessFail) {
-    //   console.log("save Fail");
-    // }
-    ProcessFail && dispatch({ type: "SAVE_FAIL", data: true });
+    if (ProcessFail === "FULL") {
+      dispatch({ type: "SAVE_FAIL_FULL", data: true });
+      console.log("save Fail");
+    }
+    if (ProcessFail === "DUPLICATED") {
+      dispatch({ type: "SAVE_FAIL_DUPLICATED", data: true });
+    }
+    // ProcessFail && dispatch({ type: "SAVE_FAIL", data: true });
   };
 
   // console.log(state.colorList);
@@ -74,15 +80,12 @@ const ColorPicker = () => {
             onChange={handleOnChnage}
             color={state.color}
           />
-          <div className="md:p-[3rem] rounded-2xl h-[450px] p-[1rem] glassmorphism-inner flex flex-col justify-between gap-[30px] items-center">
+          <div className="md:p-[3rem] rounded-2xl h-[450px] p-[1rem] glassmorphism-inner glassmorphism-outer flex flex-col justify-between gap-[30px] items-center">
             <p className="text-white text-[22px] relative  ">
               YOUR CURRENT COLOR
             </p>
             {state.showModal && (
-              <Modal
-                removeModal={removeFailMsg}
-                msg="Too Much Item in Storage"
-              />
+              <Modal removeModal={removeFailMsg} msg={state.ModalMessage} />
             )}
             <div className="flex flex-row gap-1 items-center">
               <BsFillBookmarksFill
@@ -114,9 +117,9 @@ const ColorPicker = () => {
               >
                 COPY
               </button>
-              <button className="text-white px-[10px] py-[10px] rounded-[10px] bg-white/10 backdrop-blur-3xl">
-                Pass to Shades
-              </button>
+              {/* <button className="text-white px-[10px] py-[10px] rounded-[10px] bg-white/10 backdrop-blur-3xl">
+                PASS TO SHADE
+              </button> */}
             </div>
           </div>
           {/* {for color storage} */}
@@ -130,6 +133,7 @@ const ColorPicker = () => {
           defaultValue={"#1f1f1f1"}
         /> */}
         </div>
+        <Shade color={state.hex} />
       </div>
     </div>
   );

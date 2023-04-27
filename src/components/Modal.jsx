@@ -4,7 +4,7 @@ const Modal = ({ msg, removeModal }) => {
   useEffect(() => {
     const remove = setTimeout(() => {
       removeModal();
-    }, 5000);
+    }, 2000);
 
     return () => clearTimeout(remove);
   }, []);

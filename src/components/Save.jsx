@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { DotWave } from "@uiball/loaders";
-import { getLocalData, clearStorage } from "../utilities/LocalData";
+import {
+  getLocalData,
+  clearStorage,
+  removeSingledata,
+} from "../utilities/LocalData";
 
 const Save = ({ closeSave, show }) => {
   const [saveData, setSaveData] = useState(getLocalData);
-  console.log(saveData);
 
   useEffect(() => {
     // let initialLoad = getLocalData;
@@ -13,14 +16,14 @@ const Save = ({ closeSave, show }) => {
     const intervalLoad = setInterval(() => {
       let initialLoad = getLocalData;
       setSaveData(initialLoad);
-    }, 2000);
+    }, 1000);
     return () => clearInterval(intervalLoad);
   }, []);
   return (
     <div
       className={` ${
         show ? "translate-x-[0%]" : "translate-x-[200%]"
-      } absolute z-[1] lg:w-[60%] w-full lg:p-[3rem] p-[1rem] rounded-2xl flex flex-col gap-[20px] justify-center items-center bg-[#0E0E0E] duration-1000 ease-in-out glassmorphism-outer`}
+      } absolute z-[1] lg:w-[100%]  w-full lg:p-[3rem] p-[1rem] rounded-2xl flex flex-col gap-[20px] justify-center items-center bg-[#0E0E0E] duration-500 ease-out`}
     >
       {/* <h1 className="text-white">IN DEVELOPMENT</h1>
       <DotWave size={47} speed={1} color="white" />; */}
@@ -52,7 +55,13 @@ const Save = ({ closeSave, show }) => {
                 style={{ backgroundColor: data }}
                 className={`w-[10px] h-[10px]`}
               ></div>
-              <button>remove</button>
+              <button
+                onClick={() => {
+                  removeSingledata(data);
+                }}
+              >
+                remove
+              </button>
             </div>
           );
         })}

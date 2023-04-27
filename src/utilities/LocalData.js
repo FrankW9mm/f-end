@@ -13,14 +13,31 @@ export const getLocalData = () => {
     }
 };
 
+const checkcolor =(color)=>{
+    let temp_color = getLocalData();
+    if(temp_color.includes(color)){
+        return true;
+    }
+    else{
+        return false
+    }
+}
+
 export const saveColor = (color) =>{
     let newEntry = getLocalData();
+    let Duplicatechecker = checkcolor(color);
     if(newEntry.length >= 10) {
-        return -1;
+        return 'FULL';
     }
-    let newSave = [...newEntry,color];
-    console.log(newEntry);
+    if(Duplicatechecker){
+        return'DUPLICATED'
+        // console.log('already saved');
+    }
+    else{
+        let newSave = [...newEntry,color];
+        console.log(newEntry);
     localStorage.setItem("color-list",JSON.stringify(newSave))
+    }
 }
 
 export const clearStorage = ()=>{
@@ -30,18 +47,23 @@ export const clearStorage = ()=>{
     localStorage.removeItem("color-list")
 }
 
+export const removeSingledata = ( color )=>{
+    let NewColorList = getLocalData().filter( preColor=> preColor !== color)
+    localStorage.setItem("color-list",JSON.stringify(NewColorList))
+}
+
 export const updateColorList = (colorList) =>{
-try{
-    let OverRider = colorList; // expected to be array
-        if(!OverRider){
-            localStorage.setItem("color-list",JSON.stringify([]))
+    try{
+        let OverRider = colorList; // expected to be array
+            if(!OverRider){
+                localStorage.setItem("color-list",JSON.stringify([]))
+                }
+            else{
+                localStorage.setItem("color-list",JSON.stringify(OverRider))// overriding 
             }
-        else{
-            localStorage.setItem("color-list",JSON.stringify(OverRider))// overriding 
-        }
-}
-catch{
-    throw new Error('Invilid Color list')
-}
     }
+    catch{
+        throw new Error('Invilid Color list')
+    }
+        }
     
