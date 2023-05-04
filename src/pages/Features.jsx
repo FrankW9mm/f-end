@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import FeatureBlock from "../components/FeatureBlock";
 import Alert from "../components/Alert";
+import { motion } from "framer-motion";
+import { staggerContainer } from "../utilities/AnimationAbs";
 const Features = ({ data }) => {
   const [show, setShow] = useState({ show: "false", msg: "", type: "" });
 
@@ -10,7 +12,14 @@ const Features = ({ data }) => {
   };
   console.log(data);
   return (
-    <div className="flex lg:p-[2rem] p-[1rem] flex-col justify-center items-start bg-[#0E0E0E]">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: "false", ammount: 0.25 }}
+      id="feat"
+      className="flex lg:p-[2rem] p-[1rem] flex-col justify-center items-start bg-[#0E0E0E]"
+    >
       <h1 className="self-start relative lg:text-[32px] md:text-[24px] text-[20px] text-white font-semibold uppercase">
         the features we have to offer
         {show.show && <Alert removeAlert={ShowAlert} {...show} />}
@@ -45,7 +54,7 @@ const Features = ({ data }) => {
           </h1>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,9 +1,11 @@
 import React from "react";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../utilities/AnimationAbs";
 const FeatureBlock = ({ text, imgurl, id, title, reference }) => {
   console.log(title);
   return (
-    <div
+    <motion.div
+      variants={fadeIn("up", "tween", id * 0.1, 1)}
       key={id}
       className="lg:w-[300px] group w-[250px] overflow-clip relative flex flex-col justify-center items-center gap-[20px] rounded-[20px] glassmorphism border-white  bg-[#0c0b0b] lg:h-[300px] h-[250px]"
     >
@@ -32,7 +34,7 @@ const FeatureBlock = ({ text, imgurl, id, title, reference }) => {
           <div className="w-[0px] h-[2px] bg-white group-hover:w-[60px] duration-1000"></div>
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

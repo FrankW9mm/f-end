@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import Bg from "../components/img/bg.gif";
 import { BsMouse } from "react-icons/bs";
+import { motion, spring } from "framer-motion";
+import { staggerContainer, fadeIn } from "../utilities/AnimationAbs";
 const Hero = () => {
   return (
-    <div className="">
+    <div className=" overflow-clip">
       <div className="flex flex-col md:items-center items-start bg-[#0E0E0E] md:px-[2rem] px-[1rem] py-[3rem] gap-[30px]">
         <div className="relative w-full flex lg:flex-row flex-col gap-10 lg:items-center items-start justify-evenly">
           <div className=" absolute w-[100px] h-[100px] bottom-[-50%] right-[50%] gradient-01"></div>
@@ -32,33 +34,51 @@ const Hero = () => {
               | WE GOT EVERYTHING YOU NEED !
             </p>
             <div>
-              <button className="text-white bg-white/30 backdrop-blur-sm p-[1rem] rounded-[20px]">
+              <motion.button
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1 }}
+                className="text-white bg-white/30 backdrop-blur-sm p-[1rem] rounded-[20px]"
+                onClick={() => {
+                  const ReqDiv = document.getElementById("feat");
+                  ReqDiv.scrollIntoView();
+                }}
+              >
                 START NOW
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
       </div>
-      <div className="relative w-full h-[700px]">
-        <div className="absolute w-full h-[700px] flex-col flex justify-center items-center bg-black/80">
-          <p className="text-white md:translate-x-10 translate-x-0 uppercase">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: "false", ammount: 0.25 }}
+        className="relative w-full h-[700px]"
+      >
+        <motion.div
+          variants={fadeIn("left", "tween", 1, 1)}
+          className="absolute  w-full h-[700px] flex-col flex justify-center items-center bg-black/80"
+        >
+          <p className="text-white uppercase md:translate-x-10 translate-x-0">
             Introducing...
           </p>
-          <h1 className="text-white lg:text-[100px] md:text-[70px] mb-[20px] text-[50px] font-bold md:translate-x-10 translate-x-0">
+          <h1 className="text-white lg:text-[100px]  md:text-[70px] mb-[20px] text-[50px] font-bold md:translate-x-10 translate-x-0">
             | F-ENDZ |
           </h1>
           <BsMouse
             size={40}
             color={"white"}
-            className=" md:translate-x-10 translate-x-0"
+            className="md:translate-x-10 translate-x-0"
           />
-        </div>
+        </motion.div>
         <img
           className="w-full h-full object-top object-cover"
           src={Bg}
           alt=""
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

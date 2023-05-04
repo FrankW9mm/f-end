@@ -7,9 +7,10 @@ import { BsFillBookmarksFill } from "react-icons/bs";
 import Modal from "../components/Modal";
 import Save from "../components/Save";
 import Shade from "../components/Shade";
+import { motion } from "framer-motion";
 const initialState = {
-  color: "",
-  hex: "",
+  color: { a: 1, b: 217, g: 57, r: 110 },
+  hex: "#6E39D9",
   showModal: false,
   ModalMessage: "",
   showSave: false,
@@ -80,7 +81,7 @@ const ColorPicker = () => {
             onChange={handleOnChnage}
             color={state.color}
           />
-          <div className="md:p-[3rem] rounded-2xl h-[450px] p-[1rem] glassmorphism-inner glassmorphism-outer flex flex-col justify-between gap-[30px] items-center">
+          <div className="md:p-[3rem] rounded-2xl md:w-[400px] w-[300px] md:h-[450px] h-[400px] p-[1rem] glassmorphism-inner glassmorphism-outer flex flex-col justify-between md:gap-[30px] gap-[20px] items-center">
             <p className="text-white text-[22px] relative  ">
               YOUR CURRENT COLOR
             </p>
@@ -104,19 +105,25 @@ const ColorPicker = () => {
               <p className="text-white">{state.hex}</p>
             </div>
             <div className="flex flex-row justify-evenly gap-6">
-              <button
+              <motion.button
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1 }}
                 className="text-white px-[10px] py-[10px] rounded-[10px] bg-white/10 backdrop-blur-3xl"
                 onClick={() => handleSaveProcess(state.hex)}
               >
                 SAVE
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1 }}
                 className="text-white px-[10px] py-[10px] rounded-[10px] bg-white/10 backdrop-blur-3xl "
                 onClick={() => handleCopy()}
                 onPointerUp={() => handleCopy()}
               >
                 COPY
-              </button>
+              </motion.button>
               {/* <button className="text-white px-[10px] py-[10px] rounded-[10px] bg-white/10 backdrop-blur-3xl">
                 PASS TO SHADE
               </button> */}
