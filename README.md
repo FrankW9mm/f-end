@@ -8,7 +8,7 @@ F-endz is software useful for frontend enginnering, offering various tools to ut
 
 ## Available Features
 
-1.Color picker + color shades generators
+1.Color picker + color shades generators + color palettes
 
 2.Image gallery
 
